@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/political-contributions/static/js/main.05c79df9.js",
+    "main.js": "/political-contributions/static/js/main.5714c282.js",
     "index.html": "/political-contributions/index.html",
-    "main.05c79df9.js.map": "/political-contributions/static/js/main.05c79df9.js.map"
+    "main.5714c282.js.map": "/political-contributions/static/js/main.5714c282.js.map"
   },
   "entrypoints": [
-    "static/js/main.05c79df9.js"
+    "static/js/main.5714c282.js"
   ]
 }
