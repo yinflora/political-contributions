@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 import { Reset } from 'styled-reset';
-import Compare from './Compare';
+import Contribution from './Contribution';
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -10,6 +10,11 @@ const GlobalStyle = createGlobalStyle`
   body {
     font-family: 'Noto Sans TC', sans-serif;
   }
+
+  button {
+    border: none;
+    background-color: none;
+  }
 `;
 
 function App() {
@@ -17,7 +22,7 @@ function App() {
     <>
       <Reset />
       <GlobalStyle />
-      <Compare />
+      <Contribution />
     </>
   );
 }
