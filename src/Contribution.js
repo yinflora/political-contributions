@@ -2,6 +2,7 @@ import { csv } from 'csvtojson';
 import { useEffect, useState } from 'react';
 import ReactLoading from 'react-loading';
 import styled from 'styled-components/macro';
+import arrow from './arrow.png';
 import Compare from './components/Compare';
 import Legislators from './components/Legislators';
 
@@ -43,6 +44,14 @@ const Select = styled.select`
   padding: 1% 2%;
   outline: none;
   font-size: 1.25rem;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url(${arrow});
+  background-position: calc(100% - 3%) center;
+  background-repeat: no-repeat;
+  background-size: 1rem auto;
 `;
 
 const LoadingWrapper = styled.div`
@@ -102,7 +111,7 @@ const Contribution = () => {
     if (selectedCandidateIndex !== -1) {
       newComparisonList.splice(selectedCandidateIndex, 1);
     } else {
-      newComparisonList.length < LEGISLATORS_COMPARE_LIMIT &&
+      comparisonList.length < LEGISLATORS_COMPARE_LIMIT &&
         newComparisonList.push(candidateInfo);
     }
 
@@ -112,7 +121,7 @@ const Contribution = () => {
   const compareSelectedCandidates = (candidateInfo, selectIndex) => {
     const newComparisonList = [...comparisonList];
 
-    if (newComparisonList.length < LEGISLATORS_COMPARE_LIMIT) {
+    if (comparisonList.length < LEGISLATORS_COMPARE_LIMIT) {
       newComparisonList.push(candidateInfo);
     } else {
       newComparisonList[selectIndex] = candidateInfo;
@@ -141,7 +150,7 @@ const Contribution = () => {
           : '請選擇兩位政治人物進行比較，再點擊一次即可取消比較'}
       </Description>
       <CompareContainer>
-        {comparationOptions.map((_, index) => (
+        {comparationOptions.map((item, index) => (
           <Select
             onChange={(e) => {
               if (e.target.value === '請選擇想比較的姓名') return;
@@ -154,7 +163,7 @@ const Contribution = () => {
             <option selected={!comparisonList[index]}>
               請選擇想比較的姓名
             </option>
-            {legislators.map((option) => (
+            {item.map((option) => (
               <option
                 selected={
                   comparisonList[index] &&
